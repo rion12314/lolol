@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelarin - Joki Tugas E-Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+   <svg style="position: absolute; width: 0; height: 0;">
+  <filter id="wavy">
+    <feTurbulence id="turbulence"
+                  type="turbulence"
+                  baseFrequency="0.01 0.02"
+                  numOctaves="1"
+                  result="turbulence">
+      <animate attributeName="baseFrequency"
+               dur="5s"
+               values="0.01 0.02; 0.02 0.04; 0.01 0.02"
+               repeatCount="indefinite" />
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic"
+                       in2="turbulence"
+                       scale="10"
+                       xChannelSelector="R"
+                       yChannelSelector="G" />
+  </filter>
+</svg>
+
+      
+      
+</head>
+<body>
+
+    <div class="running-text">
+        <p> Kelarin.com - Joki Tugas Kuliah dan E-Learning | Aman, Cepat, dan Profesional</p>
+      </div>
+
+  <div class="gif-container">
+     <img src="image/Ganbw.gif" alt="GIF klearin">
+
+     <p class="gif-caption"><span class="pink">Kelarin</span>.com</p>
+  </div> 
+
+  <div 
+  class="jargon">lo <span class="whiteout">sibuk??</span> gw <span class="pink">kelarin</span></div>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
