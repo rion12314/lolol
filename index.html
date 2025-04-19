@@ -1,53 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelarin - Joki Tugas E-Learning</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-   <svg style="position: absolute; width: 0; height: 0;">
-  <filter id="wavy">
-    <feTurbulence id="turbulence"
-                  type="turbulence"
-                  baseFrequency="0.01 0.02"
-                  numOctaves="1"
-                  result="turbulence">
-      <animate attributeName="baseFrequency"
-               dur="5s"
-               values="0.01 0.02; 0.02 0.04; 0.01 0.02"
-               repeatCount="indefinite" />
-    </feTurbulence>
-    <feDisplacementMap in="SourceGraphic"
-                       in2="turbulence"
-                       scale="10"
-                       xChannelSelector="R"
-                       yChannelSelector="G" />
-  </filter>
-</svg>
-
-      
-      
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kelarin - Joki Tugas E-Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- SVG Filter -->
+  <svg style="position: absolute; width: 0; height: 0;">
+    <filter id="wavy">
+      <feTurbulence id="turbulence"
+                    type="turbulence"
+                    baseFrequency="0.01 0.02"
+                    numOctaves="1"
+                    result="turbulence">
+        <animate attributeName="baseFrequency"
+                 dur="5s"
+                 values="0.01 0.02; 0.02 0.04; 0.01 0.02"
+                 repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic"
+                         in2="turbulence"
+                         scale="20"
+                         xChannelSelector="R"
+                         yChannelSelector="G" />
+    </filter>
+  </svg>
 </head>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
 <body>
 
-    <div class="running-text">
-        <p> Kelarin.com - Joki Tugas Kuliah dan E-Learning | Aman, Cepat, dan Profesional</p>
-      </div>
+  <div class="running-text">
+    <p>Kelarin.com - Joki Tugas Kuliah dan E-Learning | Aman, Cepat, dan Profesional</p>
+  </div>
 
   <div class="gif-container">
-     <img src="image/Ganbw.gif" alt="GIF klearin">
-
-     <p class="gif-caption"><span class="pink">Kelarin</span>.com</p>
+    <img src="image/Ganbw.gif" alt="GIF kelarin">
+    <p class="gif-caption"><span class="pink">Kelarin</span>.com</p>
   </div> 
 
-  <div 
-  class="jargon">lo <span class="whiteout">sibuk??</span> gw <span class="pink">kelarin</span></div>
+  <div class="jargon">
+    <span class="rotating-text">
+      <span class="text"></span>
+    </span>
+  </div>
 
+  <div data-aos="fade-up"
+      class="section-kontak target">
+    <h2>Tunggu Apa Lagi</h2>
+    <p>Masih ragu atau mau tanya-tanya dulu? Boleh banget!<br> Admin kami siap bantuin kamu kapan aja (ya, hampir kapan aja lah ).</p>
+    <div class="cta">
+      <a class="trigger" href="https://wa.me/6281364061811" target="_blank">
+        <img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WA"> Chat Admin Di Whatsapp
+      </a>
+    </div>
+  </div>
 
+  <script>
+    // Rotating text
+    const texts = [
+      'lo <span class="whiteout">sibukkkkkk??</span>  gw <span class="pink">kelarin</span>',
+      'banyak <span class="whiteout">gawean??</span> gw <span class="pink">kelarin</span>!!',
+      '<span class="whiteout">magerrrr</span> nugas?? gw <span class="pink">kelarin</span>',
+      'diterror <span class="whiteout">deadline??</span> gw <span class="pink">kelarinnnnn</span>'
+    ];
+  
+    const textEl = document.querySelector('.rotating-text .text');
+    let index = 0;
+  
+    function showNextText() {
+      textEl.innerHTML = texts[index];
+      textEl.style.animation = 'none';
+      void textEl.offsetWidth; // force reflow
+      textEl.style.animation = 'slideLeft 3s ease-in-out forwards';
+      index = (index + 1) % texts.length;
+    }
+  
+    showNextText(); // initial call
+    setInterval(showNextText, 3000);
+  
+    // Glow trigger on hover
+   // Ambil elemen tombol dan body
+const ctaButton = document.querySelector('.section-kontak .cta a');
+const glowTarget = document.querySelector('.section-kontak');
+const body = document.querySelector('body');
 
+// Tambahkan event listener untuk hover
+ctaButton.addEventListener('mouseenter', () => {
+  glowTarget.classList.add('active');  // Terangin teks
+  body.classList.add('active');        // Gelapin body
+});
 
+ctaButton.addEventListener('mouseleave', () => {
+  glowTarget.classList.remove('active');  // Matikan glow
+  body.classList.remove('active');        // Kembali ke body normal
+});
 
-    <script src="script.js"></script>
+  </script>
+  
+  
 </body>
 </html>
